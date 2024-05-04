@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+:root {
+    --main-color: #1a1a1a;
+    --secondary-color: #222222;
+    --light-grey: #2e2e2e;
+    --crypto: #0a58ca;
+    --case: #028b4c;
+    --money: #ab313d;
+}
+::selection {
+    background: #2ca9bc; /* Safari */    
+}
+::-moz-selection {  
+    background: #2ca9bc; /* Firefox */    
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box !important;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    font-family: "Source Code Pro", monospace;
+}
+p{
+    margin: 0;
+}
+body{
+    background: var(--main-color);
+    color: #fff;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+}
+.pie-chart {
+    width: 330px;
+    height: 330px;
+    border-radius: 50%;
+    /* background: conic-gradient(var(--case) 0% 20%, var(--crypto) 20% 100%) */
+}
+.pie-chart::before{
+    content: "";
+    display: block;
+    z-index: 1;
+    margin-top: 25%;
+    margin-left: 25%;
+    width: 50%;
+    height: 50%;
+    background: var(--secondary-color);
+    border-radius: 50%;
+}
+.card-info.diagram{
+    display: flex;
+    align-items: center;
+}
+.container-fluid{
+    padding: 0;
+}
+.content-row{
+    display: flex;
+}
+.navbar{
+    padding: 0;
+}
+.navbar > nav{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-direction: column;
+    height: 100vh;
+    width: 70px;
+    background: var(--secondary-color);
+}
+.navbar > nav > a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    background: var(--light-grey);
+    border-radius: 5px;
+}
+.navbar .crypto:hover,
+.navbar .money:hover,
+.navbar .case:hover,
+.navbar .dashboard:hover{
+    padding: 5px !important;
+    border-radius: 50%;
+}
+.navbar .crypto:hover{
+    background: var(--crypto);
+}
+.navbar .money:hover{
+    background: var(--money);
+}
+.navbar .case:hover{
+    background: var(--case);
+}
+.nav-logo{
+    width: 100% !important;
+    border-radius: unset !important;
+}
+.nav-logo img{
+    min-width: 40px;
+    max-width: 40px;
+}
+@media screen and (max-width: 991px){
+    .navbar > nav{
+        flex-direction: row;
+        height: 70px;
+        width: 100%;
+    }
+    .nav-logo{
+        width: 60px !important;
+        height: 100% !important;
+    }
+    .nav-logo img{
+        width: 100% !important;
+    }
+    .navbar a img{
+        width: 30px;
+    }
+    .content-row{
+        flex-direction: column;
+        width: 100%;
+        height: 50px;
+    }
+}
+@media screen and (max-width: 767px){
+    .card-row-1{
+        flex-direction: column !important;
+    }
+    .card-row-2{
+        flex-direction: column-reverse !important;
+        margin-bottom: 15px;
+    }
+    .card-info{
+        width: 100% !important;
+    }
+}
+#dashboard{
+    width: 100%; height: 100vh;
+    padding: 15px;
+}
+.card-row-1{
+    display: flex;
+    gap: 15px
+}
+.card-row-1 .card-info{
+    width: 32.7%;
+    height: 120px;
+    padding: 10px 20px;
+    background: var(--secondary-color);
+    border-radius: 5px;
+    cursor: pointer;
+}
+.card-header{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 10px; margin-bottom: 10px;
+    border-bottom: 3px solid var(--light-grey);
+}
+.card-icon{
+    width: 45px;
+}
+.card-info .balance-value{
+    font-size: 20px;
+}.balance-value{
+    font-family: "Noto Sans Mono", monospace;
+}
+.card-row-2{
+    margin-top: 15px;
+    display: flex;
+    gap: 15px
+}
+.card-row-2 .card-info{
+    height: 400px;
+    width: 32.7%;
+    padding: 10px 20px;
+    background: var(--secondary-color);
+    border-radius: 5px;
+}
+.card-row-2 .card-info.diagram{
+    width: calc(65.4% + 15px);
+}
+.coins-list,
+.coins-list span.balance-value{
+    font-size: 16px !important;
+}
+.coins-list > span{
+    display: block;
+    font-family: "Noto Sans Mono", monospace !important;
+    
+}
+
+.card-info .card-icon{
+    padding: 5px;
+    border-radius: 50%;
+}
+.card-info.crypto .card-icon{
+    background: var(--crypto)
+}
+.card-info.case .card-icon{
+    background: var(--case)
+}
+.card-info.money .card-icon{
+    background: var(--money)
+}
