@@ -6,5 +6,5 @@
     "routes": [
         { "src": "/(.*)", "dest": "app.py" }
     ],
-    "regions": ["sfo1"]
+    "regions": ["dub1"]
 }
