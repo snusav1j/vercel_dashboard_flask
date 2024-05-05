@@ -210,3 +210,6 @@ a{
 .card-info.money .card-icon{
     background: var(--money)
 }
+.card-row-2 .card-info:not(:last-child){
+    margin-bottom: 15px
+}
