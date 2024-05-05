@@ -1,0 +1,230 @@
+/* Стили для страницы dashboard (/dashboard.html) */
+
+.pie-chart {
+    width: 330px;
+    height: 330px;
+    border-radius: 50%;
+}
+@keyframes pathRotate {
+    0% {  transform: rotate(0deg); }
+    50% { transform: rotate(-540deg); }
+    100% { transform: rotate(-1080deg); }
+}
+.pie-chart::before{
+    content: "";
+    display: block;
+    z-index: 1;
+    margin-top: 25%;
+    margin-left: 25%;
+    width: 50%;
+    height: 50%;
+    background: var(--secondary-color);
+    border-radius: 50%;
+}
+@media screen and (max-width: 425px){
+    .pie-chart{
+        width: 250px;
+        height: 250px;
+    }
+}
+@media screen and (max-width: 991px){
+    .pie-chart{
+        width: 280px !important; height: 280px !important;
+    }
+}
+@media screen and (max-width: 600px){
+    .pie-chart{
+        width: 250px !important; height: 250px !important;
+    }
+}
+@media screen and (max-width: 485px){
+    .pie-chart{
+        width: 260px !important; height: 260px !important;
+    }
+    .card-info.diagram{
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+.card-info.diagram{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.pie-crypto,
+.pie-case{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.pie-elems .pie-crypto span{
+    display: flex;
+    width: 15px; height: 15px;
+    background: var(--crypto)
+}
+.pie-elems .pie-case span{
+    width: 15px; height: 15px;
+    background: var(--case)
+}
+.content-row{
+    display: flex;
+}
+@media screen and (max-width: 767px){
+    .card-row-1{
+        flex-direction: column-reverse !important;
+    }
+    .card-row-2{
+        flex-direction: column-reverse !important;
+        margin-bottom: 15px;
+    }
+    .card-info{
+        width: 100% !important;
+    }
+}
+#dashboard{
+    width: 100%; height: 100vh;
+    padding: 15px;
+}
+.card-row-1{
+    display: flex;
+    gap: 15px
+}
+.card-row-1 .card-info{
+    width: 32.7%;
+    height: 120px;
+    padding: 10px 20px;
+    background: var(--secondary-color);
+    border-radius: 5px;
+    cursor: pointer;
+}
+.card-header{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 10px; margin-bottom: 10px;
+    border-bottom: 3px solid var(--light-grey);
+}
+.card-icon{
+    width: 45px;
+}
+.card-row-1 .card-info .balance-value{
+    font-size: 20px;
+}
+.card-row-2 .card-header{
+    gap: 5px;
+}
+.card-row-2{
+    margin-top: 15px;
+    display: flex;
+    gap: 15px
+}
+.card-row-2 .card-info{
+    height: 400px;
+    width: 32.7%;
+    padding: 10px 20px;
+    background: var(--secondary-color);
+    border-radius: 5px;
+}
+.card-row-2 .card-info.diagram{
+    width: calc(65.4% + 15px);
+}
+
+.coins-list > span{
+    display: block;
+}
+.card-info .card-icon{
+    padding: 5px;
+    border-radius: 50%;
+}
+.card-info.crypto .card-icon{
+    background: var(--crypto)
+}
+.card-info.case .card-icon{
+    background: var(--case)
+}
+.card-info.money .card-icon{
+    background: var(--money)
+}
+.card-row-2 .card-info:not(:last-child){
+    margin-bottom: 15px
+}
+.coins-list span:not(:last-child){
+    border-bottom: 1px solid var(--light-grey);
+    margin-bottom: 10px; padding-bottom: 10px;
+}
+.responsive-list{
+    height: 300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-color: var(--light-grey) var(--main-color);
+    scrollbar-width: thin;
+}
+.responsive-list::-webkit-scrollbar {
+    background: var(--light-grey);
+    width: 5px;
+}
+.responsive-list::-webkit-scrollbar-thumb{
+    background: var(--main-color)
+}
+@media screen and (min-width: 1200px){
+    .responsive-list .coins-list{
+        position: relative;
+    }
+    .responsive-list .coins-list span{
+        margin-left: 25px;
+    }
+    .responsive-list .coins-list span.balance-value{
+        position: absolute;
+        right: 30px;
+        margin-left: 0;
+    }
+}
+.curr-convert{
+    width: 50px;
+    padding: 5px 0;
+    background: #525252;
+    justify-content: center;
+    cursor: pointer;
+    color: #fff;
+    border: 3px solid var(--light-grey);
+}
+.curr-convert label{
+    cursor: pointer;
+}
+.curr-convert label:active,
+.curr-convert:active,
+.curr-convert label:hover,
+.curr-convert:hover{
+    background: #6a6969;
+}
+
+@media screen and (max-width: 991px){
+    .curr-convert {
+        position: absolute;
+        bottom: unset;
+        left: unset;
+        right: 15px
+    }
+}
+.curr-direction,
+.balance-info{
+    display: flex;
+}
+.curr-down,
+.curr-up{
+    width: 30px;
+    height: 30px;
+}
+@media screen and (max-width: 991px){
+    *{
+        font-size: 14px !important;
+    }
+    .curr-down,
+    .curr-up{
+        width: 20px !important;
+        height: 20px !important;
+    }
+    .card-row-1 .card-info{
+        height: 110px !important;;
+    }
+}
