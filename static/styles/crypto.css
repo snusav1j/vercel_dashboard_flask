@@ -5,3 +5,10 @@
     padding: 5px !important;
     border-radius: 50% !important;
 }
+.navbar .crypto:hover{
+    padding: unset !important;
+    border-radius: unset !important;
+}
+.navbar .crypto:hover{
+    background: unset !important;
+}

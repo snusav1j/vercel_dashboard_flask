@@ -5,3 +5,10 @@
     padding: 5px !important;
     border-radius: 50% !important;
 }
+.navbar .money:hover{
+    padding: unset !important;
+    border-radius: unset !important;
+}
+.navbar .money:hover{
+    background: unset !important;
+}
