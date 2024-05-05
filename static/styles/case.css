@@ -1,1 +1,7 @@
 /* Стили для страницы case (/case.html) */
+
+.active-page{
+    background: var(--case) !important;
+    padding: 5px !important;
+    border-radius: 50% !important;
+}

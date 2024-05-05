@@ -1,1 +1,7 @@
 /* Стили для страницы crypto (/crypto.html) */
+
+.active-page{
+    background: var(--crypto) !important;
+    padding: 5px !important;
+    border-radius: 50% !important;
+}

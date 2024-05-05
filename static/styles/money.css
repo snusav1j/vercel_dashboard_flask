@@ -1,1 +1,7 @@
 /* Стили для страницы money (/money.html) */
+
+.active-page{
+    background: var(--money) !important;
+    padding: 5px !important;
+    border-radius: 50% !important;
+}
