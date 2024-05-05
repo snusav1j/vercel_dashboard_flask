@@ -50,6 +50,15 @@ a{
     background: var(--secondary-color);
     border-radius: 50%;
 }
+@media screen and (max-width: 425px){
+    .pie-chart{
+        width: 250px;
+        height: 250px;
+    }
+    .card-info.diagram{
+        justify-content: center;
+    }
+}
 .card-info.diagram{
     display: flex;
     align-items: center;
@@ -262,4 +271,13 @@ a{
         left: unset;
         right: 15px
     }
+}
+.curr-direction,
+.balance-info{
+    display: flex;
+}
+.curr-down,
+.curr-up{
+    width: 30px;
+    height: 30px;
 }
