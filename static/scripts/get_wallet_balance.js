@@ -24,7 +24,7 @@ setInterval(function() {
         //
         total_crypto_percent = Number(total_crypto_balance) / total_wallet_balance * 100
         total_case_percent = total_case_balance / total_wallet_balance * 100
-        $('.pie-chart').css("background",`conic-gradient(var(--case) 0% ${String(total_crypto_percent)}%, var(--crypto) ${String(total_crypto_percent)}% 100%)`);
+        $('.pie-chart').css("background",`conic-gradient(var(--crypto) 0% ${String(total_crypto_percent)}%, var(--case) ${String(total_crypto_percent)}% 100%)`);
         
         
 
