@@ -38,7 +38,6 @@ a{
     width: 330px;
     height: 330px;
     border-radius: 50%;
-    /* background: conic-gradient(var(--case) 0% 20%, var(--crypto) 20% 100%) */
 }
 .pie-chart::before{
     content: "";
@@ -98,6 +97,14 @@ a{
 }
 .navbar .case:hover{
     background: var(--case);
+}
+@media screen and (max-width: 360px){
+    .navbar a.crypto,
+    .navbar a.case,
+    .navbar a.money{
+        width: 45px !important;
+        height: 45px
+    }
 }
 .nav-logo{
     width: 100% !important;
@@ -194,9 +201,7 @@ a{
 .coins-list > span{
     display: block;
     font-family: "Noto Sans Mono", monospace !important;
-    
 }
-
 .card-info .card-icon{
     padding: 5px;
     border-radius: 50%;
@@ -212,4 +217,39 @@ a{
 }
 .card-row-2 .card-info:not(:last-child){
     margin-bottom: 15px
+}
+.coins-list span:not(:last-child){
+    border-bottom: 1px solid var(--light-grey);
+    margin-bottom: 10px; padding-bottom: 10px;
+}
+.responsive-list{
+    height: 300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-color: var(--light-grey) var(--main-color);
+    scrollbar-width: thin;
+}
+.responsive-list::-webkit-scrollbar {
+    background: var(--light-grey);
+    width: 5px;
+}
+.responsive-list::-webkit-scrollbar-thumb{
+    background: var(--main-color)
+}
+.curr-convert{
+    width: 50px;
+    padding: 5px 0;
+    background: #525252;
+    justify-content: center;
+    cursor: pointer;
+    color: #fff;
+}
+.curr-convert label{
+    cursor: pointer;
+}
+.curr-convert label:active,
+.curr-convert:active,
+.curr-convert label:hover,
+.curr-convert:hover{
+    background: #6a6969;
 }
