@@ -1,3 +1,5 @@
+// скрипты для страницы dashboard (/dashboard.html) */
+
 setInterval(function() {
     $.ajax({
         url: "/wallet_info",
