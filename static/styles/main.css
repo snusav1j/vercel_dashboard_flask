@@ -243,6 +243,7 @@ a{
     justify-content: center;
     cursor: pointer;
     color: #fff;
+    border: 3px solid var(--light-grey);
 }
 .curr-convert label{
     cursor: pointer;
@@ -252,4 +253,13 @@ a{
 .curr-convert label:hover,
 .curr-convert:hover{
     background: #6a6969;
+}
+
+@media screen and (max-width: 991px){
+    .curr-convert {
+        position: absolute;
+        bottom: unset;
+        left: unset;
+        right: 15px
+    }
 }
