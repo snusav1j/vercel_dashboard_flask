@@ -4,6 +4,7 @@
     width: 330px;
     height: 330px;
     border-radius: 50%;
+    border: 5px solid var(--light-grey);
 }
 @keyframes pathRotate {
     0% {  transform: rotate(0deg); }
@@ -11,6 +12,7 @@
     100% { transform: rotate(-1080deg); }
 }
 .pie-chart::before{
+    border: 5px solid var(--light-grey);
     content: "";
     display: block;
     z-index: 1;
