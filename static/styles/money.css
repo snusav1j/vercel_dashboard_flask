@@ -1,5 +1,9 @@
 /* Стили для страницы money (/money.html) */
 
+#money{
+    width: 100%;
+    padding: 15px;
+}
 .active-page{
     background: var(--money) !important;
     padding: 5px !important;
@@ -11,4 +15,13 @@
 }
 .navbar .money:hover{
     background: var(--money) !important;
+}
+
+#money .card-info {
+    width: 100%;
+    height: 120px;
+    padding: 10px 20px;
+    background: var(--secondary-color);
+    border-radius: 5px;
+    cursor: pointer;
 }
