@@ -3,12 +3,12 @@
 .active-page{
     background: var(--crypto) !important;
     padding: 5px !important;
-    border-radius: 50% !important;
 }
 .navbar .crypto:hover{
     padding: unset !important;
     border-radius: unset !important;
+    border-radius: 50% !important;
 }
 .navbar .crypto:hover{
-    background: unset !important;
+    background: var(--crypto) !important;
 }
