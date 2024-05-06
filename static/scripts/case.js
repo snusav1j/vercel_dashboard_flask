@@ -1,13 +1,16 @@
 // скрипты для страницы case (/case.html) */
 
-$('.navbar a.case').addClass('active-page')
-
-jQuery.ajax({
-    url: "/",
-    success: function(result) {
-        var html = jQuery('<div>').html(result);
-
-        $('#case').html(html.find("div#dashboard .card-info.case"))
-
-    },
-});
+function passData() {
+    case_value_input = $('#case-value-input')
+    case_value_data = case_value_input.val()
+    if (case_value_data != ''){
+        
+        $.ajax({
+            type: "POST",
+            url: "/get_data",
+            data: {"case_value": case_value_data}
+        });
+        case_value_input.val('');
+    }
+}
+   

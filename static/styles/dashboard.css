@@ -154,20 +154,7 @@
     border-bottom: 1px solid var(--light-grey);
     margin-bottom: 10px; padding-bottom: 10px;
 }
-.responsive-list{
-    height: 300px;
-    overflow-x: hidden;
-    overflow-y: auto;
-    scrollbar-color: var(--light-grey) var(--main-color);
-    scrollbar-width: thin;
-}
-.responsive-list::-webkit-scrollbar {
-    background: var(--light-grey);
-    width: 5px;
-}
-.responsive-list::-webkit-scrollbar-thumb{
-    background: var(--main-color)
-}
+
 @media screen and (min-width: 1200px){
     .responsive-list .coins-list{
         position: relative;

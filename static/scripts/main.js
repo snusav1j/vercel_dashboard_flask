@@ -1,6 +1,7 @@
 // скрипты для страницы dashboard (/dashboard.html) */
 
 setInterval(function() {
+
     $.ajax({
         url: "/wallet_info",
         type: "get",
@@ -8,11 +9,30 @@ setInterval(function() {
             get_wallet_info(res);
         }
     });
-}, 3000)
+
+function get_case_data(url) {
+    return JSON.parse($.ajax({
+        type: 'GET',
+        url: "static/data/data.json",
+        dataType: 'json',
+        global: false,
+        async: false,
+        success: function (data) {
+            console.log(data)
+            return data;
+        }
+    }).responseText);
+}
+case_data = get_case_data();
+cases_list = case_data.cases_info
+total_case_balance = Number(case_data.case_value)
+
 
 function get_wallet_info(res){
     // данные с байбита
-    usd = 91.6
+    
+    console.log()
+    usd = 91.3
     total_crypto_balance = Number(res[0].walletBalance).toFixed(2)
     res = res.splice(1) // удалить первое значение (баланс кошелька) для перебора ТОЛЬКО списка монет
     coins_list = ''
@@ -32,12 +52,12 @@ function get_wallet_info(res){
         }
     }
     // диаграма в дэше
-    total_case_balance = Math.floor(Math.random() * 10) + 10 // test value 
+
     total_wallet_balance = Number(total_crypto_balance) + total_case_balance
     //
     total_crypto_percent = Number(total_crypto_balance) / total_wallet_balance * 100
     total_case_percent = total_case_balance / total_wallet_balance * 100
-    $('.pie-chart').css("background",`conic-gradient(var(--crypto) 0% ${String(total_crypto_percent)}%, var(--case) ${String(total_crypto_percent)}% 100%)`);
+    $('.pie-chart').css("background",`conic-gradient(var(--case) 0% ${String(total_case_percent)}%, var(--crypto) ${String(total_case_percent)}% 100%)`);
     
     // засунуть полученные данные в html
     setTimeout(function() {
@@ -61,19 +81,20 @@ function get_wallet_info(res){
         $('.crypto .balance-info .curr-up').addClass('hide')
         $('.crypto .balance-info .curr-down').removeClass('hide')
     }
-    if (last_case_val < now_case_val){
-        $('.case .balance-info .curr-up').removeClass('hide')
-        $('.case .balance-info .curr-down').addClass('hide')
-    }else{
-        $('.case .balance-info .curr-up').addClass('hide')
-        $('.case .balance-info .curr-down').removeClass('hide')
-    }
     if (last_money_val < now_money_val){
         $('.money .balance-info .curr-up').removeClass('hide')
         $('.money .balance-info .curr-down').addClass('hide')
     }else{
         $('.money .balance-info .curr-up').addClass('hide')
         $('.money .balance-info .curr-down').removeClass('hide')
+    }
+    if (last_case_val < now_case_val && last_case_val != now_case_val){
+        $('.case .balance-info .curr-up').removeClass('hide')
+        $('.case .balance-info .curr-down').addClass('hide')
+    }
+    if (last_case_val > now_case_val && last_case_val != now_case_val){
+        $('.case .balance-info .curr-up').addClass('hide')
+        $('.case .balance-info .curr-down').removeClass('hide')
     }
 
     //  конвертировать валюту
@@ -100,3 +121,4 @@ function get_wallet_info(res){
         $('.loader').remove()
     }, 1000)
 };
+}, 3000)

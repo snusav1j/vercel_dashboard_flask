@@ -8,7 +8,7 @@ jQuery.ajax({
     success: function(result) {
         var html = jQuery('<div>').html(result);
 
-        $('#crypto').html(html.find("div#dashboard .card-info.crypto"))
+        $('#crypto').prepend(html.find("div#dashboard .card-info.crypto"))
 
-    },
+    }
 });

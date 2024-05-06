@@ -8,7 +8,7 @@ jQuery.ajax({
     success: function(result) {
         var html = jQuery('<div>').html(result);
 
-        $('#money').html(html.find("div#dashboard .card-info.money"))
+        $('#money').prepend(html.find("div#dashboard .card-info.money"))
 
-    },
+    }
 });
