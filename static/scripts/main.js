@@ -27,7 +27,7 @@ function get_wallet_info(res){
             coins_list += `<span>${String(coin_quanity)} ${coin_name}: <span class="balance-value">$${String(usd_value.toFixed(2))}</span> </span>`
             $('.curr-convert > label').text('USD')
         }else{
-            coins_list += `<span>${String(coin_quanity)} ${coin_name}: <span class="balance-value">RUB ${String((usd_value * usd).toFixed(2))}</span> </span>`
+            coins_list += `<span>${String(coin_quanity)} ${coin_name}: <span class="balance-value">${String((usd_value * usd).toFixed(2))} RUB</span> </span>`
             $('.curr-convert > label').text('RUB')
         }
     }
@@ -83,9 +83,9 @@ function get_wallet_info(res){
         $('.money .balance-value').text(`$${Number(total_wallet_balance).toFixed(2)}`)
         $('.curr-convert > label').text('USD')
     }else{
-        $('.case .balance-value').text(`RUB ${Number(total_case_balance * usd).toFixed(2)}`)
-        $('.crypto .balance-value').text(`RUB ${Number(total_crypto_balance * usd).toFixed(2)}`)
-        $('.money .balance-value').text(`RUB ${Number(total_wallet_balance * usd).toFixed(2)}`)
+        $('.case .balance-value').text(`${Number(total_case_balance * usd).toFixed(2)} RUB`)
+        $('.crypto .balance-value').text(`${Number(total_crypto_balance * usd).toFixed(2)} RUB`)
+        $('.money .balance-value').text(`${Number(total_wallet_balance * usd).toFixed(2)} RUB`)
         $('.curr-convert > label').text('RUB')
     }
     $('.coins-list').html(coins_list)
