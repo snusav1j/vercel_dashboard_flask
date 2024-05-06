@@ -1,21 +1,34 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from pybit.unified_trading import HTTP
 from keys import apiKey, secretKey
+import json
 
 app = Flask(__name__)
 
 @app.route('/')
 def dashboard():
     return render_template("dashboard.html")
+
 @app.route('/crypto.html')
 def crypto():
     return render_template("crypto.html")
+
 @app.route('/case.html')
 def case():
     return render_template("case.html")
+
 @app.route('/money.html')
 def money():
     return render_template("money.html")
+
+@app.route('/get_data', methods=['POST'])
+def get_data_from_case():
+    if request.method == "POST":
+        data = request.form.to_dict()
+        print(data)
+        with open('static/data/data.json', 'w') as outfile:
+            json.dump(data, outfile)
+        return ('', 204)
 
 @app.route('/wallet_info', methods=["GET"])
 def get_wallet_info():
