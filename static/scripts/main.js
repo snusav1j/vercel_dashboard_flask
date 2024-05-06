@@ -18,7 +18,6 @@ function get_case_data(url) {
         global: false,
         async: false,
         success: function (data) {
-            console.log(data)
             return data;
         }
     }).responseText);
@@ -30,8 +29,7 @@ total_case_balance = Number(case_data.case_value)
 
 function get_wallet_info(res){
     // данные с байбита
-    
-    console.log()
+
     usd = 91.3
     total_crypto_balance = Number(res[0].walletBalance).toFixed(2)
     res = res.splice(1) // удалить первое значение (баланс кошелька) для перебора ТОЛЬКО списка монет
