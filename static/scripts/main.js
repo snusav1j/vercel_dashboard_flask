@@ -32,8 +32,8 @@ function get_wallet_info(res){
         }
     }
     // vars
-    usd = 91.3
-    income_start_date = 1713128400000
+    usd = 91.5 
+    income_start_date = 1713128400000 // 15 апреля 2024г.
     total_income_per_ms = 0.00001458333 
     total_income = ((Date.now() - income_start_date) * total_income_per_ms) / usd
     total_wallet_balance = Number(total_crypto_balance) + total_income
@@ -71,14 +71,14 @@ function get_wallet_info(res){
         $('.money .balance-info .curr-up').addClass('hide')
         $('.money .balance-info .curr-down').removeClass('hide')
     }
-    if (last_case_val < now_case_val && last_case_val != now_case_val){
-        $('.case .balance-info .curr-up').removeClass('hide')
-        $('.case .balance-info .curr-down').addClass('hide')
-    }
-    if (last_case_val > now_case_val && last_case_val != now_case_val){
-        $('.case .balance-info .curr-up').addClass('hide')
-        $('.case .balance-info .curr-down').removeClass('hide')
-    }
+    // if (last_case_val <= now_case_val && last_case_val != now_case_val){
+    //     $('.case .balance-info .curr-up').removeClass('hide')
+    //     $('.case .balance-info .curr-down').addClass('hide')
+    // }
+    // if (last_case_val > now_case_val && last_case_val != now_case_val){
+    //     $('.case .balance-info .curr-up').addClass('hide')
+    //     $('.case .balance-info .curr-down').removeClass('hide')
+    // }
 
     //  конвертировать валюту
     if ($('.curr-convert > input').is(':checked') == false){
