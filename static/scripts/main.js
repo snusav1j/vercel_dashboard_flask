@@ -92,7 +92,8 @@ function get_wallet_info(res){
         $('.money .balance-value').text(`${Number(total_wallet_balance * usd).toFixed(2)} RUB`)
         $('.curr-convert > label').text('RUB')
     }
-    $('.coins-list').html(coins_list)
+    // $('.coins-list').html(coins_list)
+    $('.coins-list').html("HIDDEN")
     
     // загрузочный экран чтобы прогрузился запрос
     $('.spinner').addClass('hide-loader')
