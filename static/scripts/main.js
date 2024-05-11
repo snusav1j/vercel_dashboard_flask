@@ -10,27 +10,9 @@ setInterval(function() {
         }
     });
 
-function get_case_data(url) {
-    return JSON.parse($.ajax({
-        type: 'GET',
-        url: "static/data/data.json",
-        dataType: 'json',
-        global: false,
-        async: false,
-        success: function (data) {
-            return data;
-        }
-    }).responseText);
-}
-case_data = get_case_data();
-cases_list = case_data.cases_info
-total_case_balance = Number(case_data.case_value)
-
-
 function get_wallet_info(res){
     // данные с байбита
 
-    usd = 91.71
     total_crypto_balance = Number(res[0].walletBalance).toFixed(2)
     res = res.splice(1) // удалить первое значение (баланс кошелька) для перебора ТОЛЬКО списка монет
     coins_list = ''
@@ -49,18 +31,21 @@ function get_wallet_info(res){
             $('.curr-convert > label').text('RUB')
         }
     }
-    // диаграма в дэше
-
-    total_wallet_balance = Number(total_crypto_balance) + total_case_balance
+    // vars
+    usd = 91.3
+    income_start_date = 1713128400000
+    total_income_per_ms = 0.00001458333 
+    total_income = ((Date.now() - income_start_date) * total_income_per_ms) / usd
+    total_wallet_balance = Number(total_crypto_balance) + total_income
     //
     total_crypto_percent = Number(total_crypto_balance) / total_wallet_balance * 100
-    total_case_percent = total_case_balance / total_wallet_balance * 100
+    total_case_percent = total_income / total_wallet_balance * 100
     $('.pie-chart').css("background",`conic-gradient(var(--case) 0% ${String(total_case_percent)}%, var(--crypto) ${String(total_case_percent)}% 100%)`);
     
     // засунуть полученные данные в html
     setTimeout(function() {
         $('.crypto .balance-value').attr('data-last-val', Number(total_crypto_balance).toFixed(2));
-        $('.case .balance-value').attr('data-last-val', Number(total_case_balance).toFixed(2));
+        $('.case .balance-value').attr('data-last-val', total_income.toFixed(2));
         $('.money .balance-value').attr('data-last-val', Number(total_wallet_balance).toFixed(2));
     }, 100)
 
@@ -68,7 +53,7 @@ function get_wallet_info(res){
     last_crypto_val = Number($('.crypto .balance-value').attr('data-last-val'))
     now_crypto_val = total_crypto_balance
     last_case_val = Number($('.case .balance-value').attr('data-last-val'))
-    now_case_val = total_case_balance
+    now_case_val = total_income.toFixed(2)
     last_money_val = Number($('.money .balance-value').attr('data-last-val'))
     now_money_val = total_wallet_balance
 
@@ -98,17 +83,16 @@ function get_wallet_info(res){
     //  конвертировать валюту
     if ($('.curr-convert > input').is(':checked') == false){
         $('.crypto .balance-value').text(`$${Number(total_crypto_balance).toFixed(2)}`)
-        $('.case .balance-value').text(`$${Number(total_case_balance).toFixed(2)}`)
+        $('.case .balance-value').text(`$${(total_income).toFixed(2)}`)
         $('.money .balance-value').text(`$${Number(total_wallet_balance).toFixed(2)}`)
         $('.curr-convert > label').text('USD')
     }else{
-        $('.case .balance-value').text(`${Number(total_case_balance * usd).toFixed(2)} RUB`)
         $('.crypto .balance-value').text(`${Number(total_crypto_balance * usd).toFixed(2)} RUB`)
+        $('.case .balance-value').text(`${(total_income * usd).toFixed(2)} RUB`)
         $('.money .balance-value').text(`${Number(total_wallet_balance * usd).toFixed(2)} RUB`)
         $('.curr-convert > label').text('RUB')
     }
-    // $('.coins-list').html(coins_list)
-    $('.coins-list').html('HIDDEN')
+    $('.coins-list').html(coins_list)
     
     // загрузочный экран чтобы прогрузился запрос
     $('.spinner').addClass('hide-loader')
@@ -120,4 +104,4 @@ function get_wallet_info(res){
         $('.loader').remove()
     }, 1000)
 };
-}, 3000)
+}, 2000)
