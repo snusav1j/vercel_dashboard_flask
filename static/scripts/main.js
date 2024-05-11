@@ -104,4 +104,4 @@ function get_wallet_info(res){
         $('.loader').remove()
     }, 1000)
 };
-}, 2000)
+}, 5000)
