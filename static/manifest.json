@@ -1,12 +1,11 @@
 {
     "name": "Dashboard",
-    "short_name": "Dash",
+    "short_name": "Dashboard",
     "icons": [{
           "src": "images/icon.png",
           "sizes": "128x128",
           "type": "image/png"
     }],
-    "start_url": "./crypto",
     "display": "standalone",
     "background_color": "#1a1a1a",
     "theme_color": "#1a1a1a"
