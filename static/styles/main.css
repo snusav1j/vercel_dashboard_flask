@@ -5,7 +5,8 @@
     --main-color: #1a1a1a;
     --secondary-color: #222222;
     --light-grey: #2e2e2e;
-    --crypto: #0a58ca;
+    --grey: #525252;
+    --crypto: #3064b3;
     --case: #028b4c;
     --money: #ab313d;
 }
@@ -50,14 +51,15 @@ a{text-decoration: none;color: #fff;}
 li{list-style: none;}
 .navbar{
     padding: 0;
+    align-items: start;
 }
 .navbar > nav{
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
     flex-direction: column;
     height: 100vh;
-    width: 70px;
+    width: 60px;
     background: var(--secondary-color);
 }
 .navbar > nav > a{
@@ -67,8 +69,15 @@ li{list-style: none;}
     padding: 10px;
     width: 50px;
     height: 50px;
-    background: var(--light-grey);
+    background: var(--grey);
     border-radius: 5px;
+    border: 3px solid var(--light-grey);
+}
+.navbar > nav > a:not(:first-child){
+    padding: 6px;
+    width: 45px;
+    height: 45px;
+    border: 3px solid var(--light-grey);
 }
 .navbar .crypto:hover,
 .navbar .money:hover,
@@ -97,6 +106,7 @@ li{list-style: none;}
 .nav-logo{
     width: 100% !important;
     border-radius: unset !important;
+    border: none !important;
 }
 .nav-logo img{
     min-width: 40px;
@@ -105,8 +115,9 @@ li{list-style: none;}
 @media screen and (max-width: 991px){
     .navbar > nav{
         flex-direction: row;
-        height: 70px;
+        height: 60px;
         width: 100%;
+        gap: 8px;
     }
     .nav-logo{
         width: 60px !important;
@@ -123,4 +134,34 @@ li{list-style: none;}
         width: 100%;
         height: 50px;
     }
+}
+@media screen and (min-width: 992px){
+    .curr-convert{
+        margin-top: 10px;    
+    }
+}
+span.balance-info{
+    align-items: center;
+    position: relative;
+}
+.crypto-pnl{
+    position: absolute;
+    right: 0;
+}
+.card-info.crypto .card-header{
+    align-items: center;
+    position: relative;
+}
+.crypto-balance-increase{
+    position: absolute;
+    right: 0;
+}
+.down{
+    color: var(--money)
+}
+.up{
+    color: var(--case)
+}
+.up::before{
+    content: "+"
 }

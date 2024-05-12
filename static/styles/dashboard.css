@@ -76,7 +76,7 @@
         flex-direction: column-reverse !important;
     }
     .card-row-2{
-        flex-direction: column-reverse !important;
+        flex-direction: column !important;
         margin-bottom: 15px;
     }
     .card-info{
@@ -130,10 +130,6 @@
 .card-row-2 .card-info.diagram{
     width: calc(65.4% + 15px);
 }
-
-.coins-list > span{
-    display: block;
-}
 .card-info .card-icon{
     padding: 5px;
     border-radius: 50%;
@@ -150,11 +146,32 @@
 .card-row-2 .card-info:not(:last-child){
     margin-bottom: 15px
 }
-.coins-list span:not(:last-child){
+.deposit-list{
+    position: relative;
+}
+.deposit-list div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 16px;
+}
+.deposit-list span.balance-value{
+    font-size: 16px !important;
+}
+.deposit-list .deposit-date span{
+    font-size: 12px !important;
+}
+.deposit-list div:not(:last-child){
     border-bottom: 1px solid var(--light-grey);
     margin-bottom: 10px; padding-bottom: 10px;
 }
-
+.deposit-list .deposit-date{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px !important;
+    color: #797979;
+}
 @media screen and (min-width: 1200px){
     .responsive-list .coins-list{
         position: relative;
@@ -171,7 +188,7 @@
 .curr-convert{
     width: 50px;
     padding: 5px 0;
-    background: #525252;
+    background: var(--grey);
     justify-content: center;
     cursor: pointer;
     color: #fff;

@@ -107,3 +107,6 @@ input#case-value-input{
         width: 18px;
     }
 }
+#case .card-row-2 .card-info{
+    width: 100%;
+}
