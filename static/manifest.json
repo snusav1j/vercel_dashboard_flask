@@ -6,5 +6,7 @@
           "sizes": "128x128",
           "type": "image/png"
         }],
-    "display": "standalone"
+    "display": "standalone",
+    "background_color": "var(--main-color)",
+    "theme_color": "#1a1a1a"
   }
