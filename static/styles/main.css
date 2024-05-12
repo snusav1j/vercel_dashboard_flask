@@ -165,7 +165,6 @@ span.balance-info{
 .up::before{
     content: "+"
 }
-
 .deposit-list span.balance-value{
     color: var(--case);
     font-size: 16px !important;

@@ -37,3 +37,8 @@
     border-bottom: 1px solid var(--light-grey);
     margin-bottom: 10px; padding-bottom: 10px;
 }
+@media screen and (max-width: 991px){
+    .card-info.crypto{
+        height: 110px !important;
+    }
+}
