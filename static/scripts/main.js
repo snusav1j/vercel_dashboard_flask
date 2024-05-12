@@ -164,5 +164,5 @@ setInterval(function() {
             $('.loader').remove()
         }, 1000)
     };
-}, 5000)
+}, 3000)
 
