@@ -71,7 +71,7 @@
 .content-row{
     display: flex;
 }
-@media screen and (max-width: 767px){
+@media screen and (max-width: 991px){
     .card-row-1{
         flex-direction: column-reverse !important;
     }
@@ -219,7 +219,7 @@
     width: 30px;
     height: 30px;
 }
-@media screen and (max-width: 991px){
+@media screen and (max-width: 1200px){
     *{
         font-size: 14px !important;
     }

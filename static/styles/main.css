@@ -169,3 +169,13 @@ span.balance-info{
     color: var(--case);
     font-size: 16px !important;
 }
+@media screen and (max-width: 1200px){
+    .deposit-list span.balance-value{
+        font-size: 14px !important;
+    }
+}
+span.case-expenses{
+    color: #797979;
+    position: absolute;
+    right: 0;
+}

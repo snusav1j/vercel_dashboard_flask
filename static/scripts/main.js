@@ -113,7 +113,7 @@ setInterval(function() {
             $('.crypto .balance-value').text(`${Number(total_crypto_balance).toFixed(2)} USD`)
             $('.case .balance-value').text(`${(total_income).toFixed(2)} USD`)
             $('.money .balance-value').text(`${Number(total_wallet_balance).toFixed(2)} USD`)
-            $('.crypto-pnl').text(`$${Number(total_balance_pnl).toFixed(2)}`)
+            $('.crypto-pnl').text(`${Number(total_balance_pnl).toFixed(2)} USD`)
             $('.curr-convert > label').text('USD')
         }else{
             $('.crypto .balance-value').text(`${Number(total_crypto_balance * usd).toFixed(2)} RUB`)
@@ -129,6 +129,7 @@ setInterval(function() {
             $('.crypto-pnl').addClass('down')
         }
 
+        // $('.coins-list').html(coins_list)
         $('.coins-list').html('HIDDEN')
         
         if (isFinite(increase_balance_percent) == true){
@@ -143,9 +144,12 @@ setInterval(function() {
         }
 
         if ($('.curr-convert > input').is(':checked') == false){
-            $('.total-dep').html(`($${total_deposit_value.toFixed(2)})`)
+            $('.total-dep').html(`(-${total_deposit_value.toFixed(2)} USD)`)
+            $('.case-expenses').html(`(-${total_deposit_value.toFixed(2)} USD)`)
+            
         }else{
-            $('.total-dep').html(`(${(total_deposit_value * usd).toFixed(2)} RUB)`)
+            $('.total-dep').html(`(-${(total_deposit_value * usd).toFixed(2)} RUB)`)
+            $('.case-expenses').html(`(-${(total_deposit_value * usd).toFixed(2)} RUB)`)
         }
 
         $('.deposit-list').html(deposit_list)
