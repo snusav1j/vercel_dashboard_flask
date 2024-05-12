@@ -5,8 +5,9 @@
           "src": "images/icon.png",
           "sizes": "128x128",
           "type": "image/png"
-        }],
+    }],
+    "start_url": "./crypto",
     "display": "standalone",
-    "background_color": "var(--main-color)",
+    "background_color": "#1a1a1a",
     "theme_color": "#1a1a1a"
   }
