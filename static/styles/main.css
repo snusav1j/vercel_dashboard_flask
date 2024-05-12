@@ -181,3 +181,8 @@ span.case-expenses{
     position: absolute;
     right: 0;
 }
+@media screen and (max-width: 425px){
+    span.total-dep{
+        display: block;
+    }
+}
