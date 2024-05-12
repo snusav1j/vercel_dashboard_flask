@@ -144,11 +144,11 @@ setInterval(function() {
         }
 
         if ($('.curr-convert > input').is(':checked') == false){
-            $('.total-dep').html(`(-${total_deposit_value.toFixed(2)} USD)`)
+            $('.total-dep').html(`(${total_deposit_value.toFixed(2)} USD)`)
             $('.case-expenses').html(`(-${total_deposit_value.toFixed(2)} USD)`)
             
         }else{
-            $('.total-dep').html(`(-${(total_deposit_value * usd).toFixed(2)} RUB)`)
+            $('.total-dep').html(`(${(total_deposit_value * usd).toFixed(2)} RUB)`)
             $('.case-expenses').html(`(-${(total_deposit_value * usd).toFixed(2)} RUB)`)
         }
 
