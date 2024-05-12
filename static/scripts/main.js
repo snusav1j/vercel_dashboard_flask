@@ -57,11 +57,11 @@ setInterval(function() {
         }
         
         // переменные
-        usd = 91.5 
+        usd = 91.66 
         
         income_start_date = 1713128400000 // 15 апреля 2024г.
         total_income_per_ms = 0.00001458333 
-        total_income = ((Date.now() - income_start_date) * total_income_per_ms) / usd
+        total_income = (((Date.now() - income_start_date) * total_income_per_ms) / usd) - total_deposit_value 
         total_wallet_balance = Number(total_crypto_balance) + total_income
         //
         increase_balance_percent = (Number(total_crypto_balance) / total_deposit_value - 1)  * 100
@@ -128,7 +128,6 @@ setInterval(function() {
         }else{
             $('.crypto-pnl').addClass('down')
         }
-
 
         $('.coins-list').html('HIDDEN')
         
