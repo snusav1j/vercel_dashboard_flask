@@ -42,3 +42,6 @@
         height: 110px !important;
     }
 }
+#crypto .card-row-2 .card-info:last-child{
+    margin-bottom: unset;
+}
