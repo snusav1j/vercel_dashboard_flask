@@ -107,6 +107,7 @@ li{list-style: none;}
     width: 100% !important;
     border-radius: unset !important;
     border: none !important;
+    background: #272727 !important;
 }
 .nav-logo img{
     min-width: 40px;
