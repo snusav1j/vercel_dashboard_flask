@@ -1,6 +1,6 @@
 {
     "name": "Dashboard",
-    "short_name": "Dash",
+    "short_name": "Dashboard",
     "icons": [{
           "src": "images/main-icon.png",
           "sizes": "128x128",
