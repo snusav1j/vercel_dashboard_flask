@@ -62,13 +62,13 @@ def get_wallet_info():
     result = session.get_wallet_balance(
         accountType="UNIFIED",
     )
-    dsa = session.get_internal_transfer_records(
+    transfer_records_result = session.get_internal_transfer_records(
         coin="USDT",
         limit=10,
     )
     fund_deposit_info = []
 
-    for i in dsa['result']['list']:
+    for i in transfer_records_result['result']['list']:
         if i['fromAccountType'] == 'FUND':
             fund_deposit_info.append(i)
     
@@ -81,28 +81,10 @@ def get_wallet_info():
     wallet_info[0].insert(0, {'walletBalance': result['result']['list'][0]['totalEquity']})
 
     wallet_info.insert(-1, fund_deposit_info)
+    
     return wallet_info
 
-@app.route('/deposit_info', methods=["GET"])
-def get_deposit_info():
-    session = HTTP(
-        testnet=False,
-        api_key=apiKey,
-        api_secret=secretKey,
-    )
-    dsa = session.get_internal_transfer_records(
-        coin="USDT",
-        limit=10,
-    )
-    fund_deposit_info = []
-    for i in dsa['result']['list']:
-        if i['fromAccountType'] == 'FUND':
-            fund_deposit_info.append(i)
-
-    return 'fund_deposit_info'
-
 if __name__ == "__main__":
-    # app.run(debug = True)
     app.run(debug = True)
 
 
