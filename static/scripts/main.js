@@ -19,7 +19,7 @@ setInterval(function() {
 
         wallet_res = wallet_res.splice(1) // удалить первое значение (баланс кошелька) для перебора ТОЛЬКО списка монет
         coins_list = ''
-        deposit_list = ''
+        deposit_list = []
         total_deposit_value = - 4.2183 - 15 // переводы между счетами
 
         // список депозитов
@@ -31,16 +31,15 @@ setInterval(function() {
             date_time = formatted_date.split(', ')[1]
             
             if ($('.curr-convert > input').is(':checked') == false){
-                deposit_list += `<div><span class="balance-value"> +${String(Number(deposit_amount).toFixed(2))} USD</span> <span class="operation-date"> <span>${date_dd_mm_yy}</span> <span>${date_time}</span> </span> </div>`
+                deposit_list.push([`<div><span class="balance-value"> +${String(Number(deposit_amount).toFixed(2))} USD</span> <span class="operation-date"> <span>${date_dd_mm_yy}</span> <span>${date_time}</span> </span> </div>`])
                 $('.curr-convert > label').text('USD')
                 total_deposit_value += Number(deposit_amount) 
             }else{
-                deposit_list += `<div><span class="balance-value"> +${String((Number(deposit_amount) * usd).toFixed(2))} RUB</span> <span class="operation-date"> <span>${date_dd_mm_yy}</span> <span>${date_time}</span> </span> </div>`
+                deposit_list.push([`<div><span class="balance-value"> +${String((Number(deposit_amount) * usd).toFixed(2))} RUB</span> <span class="operation-date"> <span>${date_dd_mm_yy}</span> <span>${date_time}</span> </span> </div>`])
                 $('.curr-convert > label').text('RUB')
                 total_deposit_value += Number(deposit_amount) 
             }
         }
-        
         // список монет
         for (i in wallet_res){
             coin_name = wallet_res[i]['coinName']
@@ -57,16 +56,18 @@ setInterval(function() {
         }
         
         // переменные
-        usd = 91.66 
+        usd = 91.82
         
         income_start_date = 1713128400000 // 15 апреля 2024г.
         total_income_per_ms = 0.00001458333
         icnome_per_day_rub = 9830
         day_point = 604800000
         days_from_income_start = Math.floor((Date.now() - 1713128400000) / day_point)
-        income_list = ''
+        income_list = []
+        
         each_income_date = income_start_date
         total_income_with_deposit = 0
+        
         for (let i = 1; i < days_from_income_start + 1; i++) {
             each_income_date += day_point
             total_income_with_deposit += icnome_per_day_rub / usd
@@ -74,10 +75,10 @@ setInterval(function() {
             date_dd_mm_yy = formatted_income_date.split(', ')[0]
             date_time = formatted_income_date.split(', ')[1]
             if ($('.curr-convert > input').is(':checked') == false){
-                income_list += `<div><span class="balance-value up">${(icnome_per_day_rub / usd).toFixed(2)} USD</span> <span class="operation-date"> <span>${date_dd_mm_yy}</span> <span>${date_time}</span> </span></div>`
+                income_list.push([`<div><span class="balance-value up">${(icnome_per_day_rub / usd).toFixed(2)} USD</span> <span class="operation-date"> <span>${date_dd_mm_yy}</span> <span>${date_time}</span> </span></div>`])
                 $('.curr-convert > label').text('USD')
             }else{
-                income_list += `<div><span class="balance-value up">${icnome_per_day_rub} RUB</span> <span class="operation-date"> <span>${date_dd_mm_yy}</span> <span>${date_time}</span> </span></div>`
+                income_list.push([`<div><span class="balance-value up">${icnome_per_day_rub} RUB</span> <span class="operation-date"> <span>${date_dd_mm_yy}</span> <span>${date_time}</span> </span></div>`])
                 $('.curr-convert > label').text('RUB')
             }
         }
@@ -155,8 +156,8 @@ setInterval(function() {
             $('.crypto-pnl').addClass('down')
         }
 
-        $('.coins-list').html(coins_list)
-        // $('.coins-list').html('HIDDEN')
+        // $('.coins-list').html(coins_list)
+        $('.coins-list').html('HIDDEN')
         
         if (isFinite(increase_balance_percent) == true){
             if (increase_balance_percent > 0){
@@ -191,3 +192,4 @@ setInterval(function() {
         }, 1000)
     };
 }, 2000)
+
