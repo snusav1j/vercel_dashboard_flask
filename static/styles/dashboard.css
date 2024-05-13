@@ -33,7 +33,7 @@
         height: 220px;
     }
 }
-@media screen and (max-width: 1350px){
+@media screen and (max-width: 1580px){
     .pie-chart {
         width: 280px;
         height: 280px;
