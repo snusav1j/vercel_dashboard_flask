@@ -30,7 +30,7 @@
 .tooltip-m::before,
 .tooltip-m::after {
 	position: absolute;
-	z-index: 1;
+    z-index: 1;
 	top: 50%;
 	right: 150%;
 	color: #f0f0f0;
@@ -285,4 +285,11 @@ span.case-expenses{
     .curr-convert {
         right: 55px !important;
     }
+}
+span.total-income,
+span.total-dep{
+	color: #797979;
+}
+.card-row-2 span.balance-value{
+	color: #017640 !important;
 }
