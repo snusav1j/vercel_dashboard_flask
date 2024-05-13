@@ -282,6 +282,6 @@ span.case-expenses{
         background: none;
     }
     .curr-convert {
-        right: 55px;
+        right: 55px !important;
     }
 }

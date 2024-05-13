@@ -70,10 +70,11 @@
     .pie-chart {
         width: 230px;
         height: 230px;
-        margin-top: 40px;
+        margin-top: 5px;
     }
     .card-info.diagram{
         flex-direction: column;
+        height: 370px;
     }
 }
 @media screen and (max-width: 600px){
@@ -112,11 +113,17 @@
         flex-direction: column-reverse !important;
     }
     .card-row-2{
-        flex-direction: column !important;
+        flex-direction: column-reverse !important;
         /* margin-bottom: 15px; */
     }
     .card-info{
         width: 100% !important;
+    }
+    .card-row-2 .card-info:last-child{
+        margin-bottom: 0 !important;
+    }
+    .card-row-2 .card-info:first-child{
+        margin-bottom: 15px;
     }
 }
 #dashboard{
