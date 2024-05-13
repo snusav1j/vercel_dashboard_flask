@@ -105,14 +105,8 @@
                     </div>
                 </div>
                 <div class="card-row-2">
-                    <div class="card-info diagram">
-                        <div class="pie-chart"></div>
-                        <div class="pie-elems">
-                            <div class="pie-crypto"><span></span>Крипта (ЕТА)</div>
-                            <div class="pie-case"><span></span>Постоянный доход</div>
-                        </div>
-                    </div>
                     <div class="card-info">
+                        <div title="Крипта(ЕТА)" class="crypto-marker tooltip-m"></div>
                         <div class="card-header">
                             <div class="card-icon">
                                 <img src="static/images/history.svg" alt="history">
@@ -120,7 +114,27 @@
                             <p>История пополнений USDT <span class="total-dep"></span></p>
                         </div> 
                         <div class="responsive-list">
-                            <div class="deposit-list"></div>
+                            <div class="deposit-list operation-list"></div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <div title="Постоянный доход" class="case-marker tooltip-m"></div>
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <img src="static/images/list.svg" alt="history">
+                            </div>
+                            <p>Список зачислений <span class="total-income"></span></p>
+                        </div> 
+                        <div class="responsive-list">
+                            <div class="income-list operation-list"></div>
+                        </div>
+                    </div>
+                    <div class="card-info diagram">
+                        <div title="Весь бюджет" class="money-marker tooltip-m"></div>
+                        <div class="pie-chart"></div>
+                        <div class="pie-elems">
+                            <div class="pie-crypto"><span></span>Крипта (ЕТА)</div>
+                            <div class="pie-case"><span></span>Дело</div>
                         </div>
                     </div>
                 </div>
