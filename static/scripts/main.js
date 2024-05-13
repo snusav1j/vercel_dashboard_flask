@@ -75,10 +75,10 @@ setInterval(function() {
             date_dd_mm_yy = formatted_income_date.split(', ')[0]
             date_time = formatted_income_date.split(', ')[1]
             if ($('.curr-convert > input').is(':checked') == false){
-                income_list.push([`<div><span class="balance-value up">${(icnome_per_day_rub / usd).toFixed(2)} USD</span> <span class="operation-date"> <span>${date_dd_mm_yy}</span> <span>${date_time}</span> </span></div>`])
+                income_list.push([`<div><span class="balance-value">+${(icnome_per_day_rub / usd).toFixed(2)} USD</span> <span class="operation-date"> <span>${date_dd_mm_yy}</span> <span>${date_time}</span> </span></div>`])
                 $('.curr-convert > label').text('USD')
             }else{
-                income_list.push([`<div><span class="balance-value up">${icnome_per_day_rub} RUB</span> <span class="operation-date"> <span>${date_dd_mm_yy}</span> <span>${date_time}</span> </span></div>`])
+                income_list.push([`<div><span class="balance-value">+${icnome_per_day_rub} RUB</span> <span class="operation-date"> <span>${date_dd_mm_yy}</span> <span>${date_time}</span> </span></div>`])
                 $('.curr-convert > label').text('RUB')
             }
         }
