@@ -23,15 +23,57 @@
     background: var(--secondary-color);
     border-radius: 50%;
 }
-@media screen and (max-width: 425px){
-    .pie-chart{
-        width: 250px;
-        height: 250px;
+.pie-chart {
+    width: 300px;
+    height: 300px;
+}
+@media screen and (max-width: 1600px){
+    .pie-chart {
+        width: 220px;
+        height: 220px;
+    }
+}
+@media screen and (max-width: 1350px){
+    .pie-chart {
+        width: 280px;
+        height: 280px;
+        margin-top: 20px;
+    }
+    .card-info.diagram{
+        flex-direction: column;
+    }
+}
+@media screen and (max-width: 1080px){
+    .pie-chart {
+        width: 230px;
+        height: 230px;
+        margin-top: 40px;
+    }
+    .card-info.diagram{
+        flex-direction: column;
     }
 }
 @media screen and (max-width: 991px){
-    .pie-chart{
-        width: 280px !important; height: 280px !important;
+    .pie-chart {
+        width: 320px;
+        height: 320px ;
+        margin-top: 0;
+    }
+    .card-info.diagram{
+        flex-direction: row;
+    }
+}
+.card-info.diagram{
+    justify-content: center;
+}
+@media screen and (max-width: 490px){
+    .pie-chart {
+        width: 230px;
+        height: 230px;
+        margin-top: 40px;
+    }
+    .card-info.diagram{
+        flex-direction: column;
     }
 }
 @media screen and (max-width: 600px){
@@ -39,15 +81,7 @@
         width: 250px !important; height: 250px !important;
     }
 }
-@media screen and (max-width: 485px){
-    .pie-chart{
-        width: 260px !important; height: 260px !important;
-    }
-    .card-info.diagram{
-        flex-direction: column;
-        justify-content: center;
-    }
-}
+
 .card-info.diagram{
     display: flex;
     align-items: center;
@@ -62,10 +96,12 @@
 .pie-elems .pie-crypto span{
     display: flex;
     width: 15px; height: 15px;
+    border-radius: 5px;
     background: var(--crypto)
 }
 .pie-elems .pie-case span{
     width: 15px; height: 15px;
+    border-radius: 5px;
     background: var(--case)
 }
 .content-row{
@@ -127,9 +163,9 @@
     background: var(--secondary-color);
     border-radius: 5px;
 }
-.card-row-2 .card-info.diagram{
+/* .card-row-2 .card-info.diagram{
     width: calc(65.4% + 15px);
-}
+} */
 .card-info .card-icon{
     padding: 5px;
     border-radius: 50%;
@@ -156,14 +192,40 @@
     margin-right: 16px;
 }
 
-.deposit-list .deposit-date span{
+.deposit-list .operation-date span{
     font-size: 12px !important;
 }
 .deposit-list div:not(:last-child){
     border-bottom: 1px solid var(--light-grey);
-    margin-bottom: 10px; padding-bottom: 10px;
+    margin-bottom: 10px; 
+    padding-bottom: 10px;
 }
-.deposit-list .deposit-date{
+.deposit-list .operation-date{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px !important;
+    color: #797979;
+}
+.income-list{
+    position: relative;
+}
+.income-list div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 16px;
+}
+
+.income-list .operation-date span{
+    font-size: 12px !important;
+}
+.income-list div:not(:last-child){
+    border-bottom: 1px solid var(--light-grey);
+    margin-bottom: 10px; 
+    padding-bottom: 10px;
+}
+.income-list .operation-date{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -182,6 +244,10 @@
         right: 30px;
         margin-left: 0;
     }
+}
+span.total-income,
+span.total-dep {
+    display: block;
 }
 .curr-convert{
     width: 50px;

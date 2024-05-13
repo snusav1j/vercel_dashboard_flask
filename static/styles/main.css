@@ -1,6 +1,7 @@
 /* Основные стили */
 
-@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
 :root {
     --main-color: #1a1a1a;
     --secondary-color: #222222;
@@ -16,6 +17,56 @@
 ::-moz-selection {  
     background: #2ca9bc; /* Firefox */    
 }
+
+/* tooltip */
+
+.tooltip-m {
+	text-align: center;
+	transition: all 0.5s ease-in-out;
+	position: relative;
+}
+
+
+.tooltip-m::before,
+.tooltip-m::after {
+	position: absolute;
+	top: 50%;
+	right: 150%;
+	color: #f0f0f0;
+	visibility: hidden;
+	opacity: 0;
+	transform: translateX(25px) translateY(-25px);
+	transition: 0.5s;
+}
+
+.tooltip-m:hover::before,
+.tooltip-m:hover::after {
+	visibility: visible;
+	opacity: 1;
+	transform: translateX(4px) translateY(-40px);
+}
+.crypto-marker.tooltip-m::before{
+    background: var(--crypto);
+}
+.case-marker.tooltip-m::before{
+    background: var(--case);
+}
+.money-marker.tooltip-m::before{
+    background: var(--money);
+}
+.tooltip-m::before {
+	content: attr(title);
+	width: fit-content;
+	white-space: nowrap;
+	height: auto;
+	border-radius: 10px;
+	display: block;
+	padding: 5px 10px;
+	margin-left: 30px;
+}
+
+/* tooltip */
+
 .responsive-list{
     height: 300px;
     overflow-x: hidden;
@@ -70,7 +121,7 @@ li{list-style: none;}
     padding: 10px;
     width: 50px;
     height: 50px;
-    background: var(--grey);
+    background: #2a2a2a;
     border-radius: 5px;
     border: 3px solid var(--light-grey);
 }
@@ -181,8 +232,24 @@ span.case-expenses{
     position: absolute;
     right: 0;
 }
-@media screen and (max-width: 425px){
-    span.total-dep{
-        display: block;
-    }
+.card-info{
+    position: relative;
+}
+.crypto-marker,
+.case-marker,
+.money-marker{
+    width: 15px; height: 15px;
+    position: absolute;
+    top: 10px; right: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.crypto-marker{
+    background: var(--crypto);
+}
+.case-marker{
+    background: var(--case);
+}
+.money-marker{
+    background: var(--money);
 }

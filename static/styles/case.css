@@ -110,3 +110,8 @@ input#case-value-input{
 #case .card-row-2 .card-info{
     width: 100%;
 }
+@media screen and (min-width: 991px){
+    #case .case span.balance-value{
+        font-size: 20px !important;
+    }
+}

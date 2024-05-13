@@ -24,14 +24,17 @@
     border-radius: 5px;
     cursor: pointer;
 }
-#crypto .card-info.crypto span.balance-value{
-    font-size: 20px;
+@media screen and (min-width: 991px){
+    #crypto .crypto span.balance-value{
+        font-size: 20px !important;
+    }
 }
 #crypto > .card-row-2{
     width: 100%;
 }
 #crypto .card-row-2 .card-info{
     height: 400px !important;
+    cursor: unset !important;
 }
 .coins-list div:not(:last-child){
     border-bottom: 1px solid var(--light-grey);

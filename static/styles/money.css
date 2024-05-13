@@ -29,3 +29,8 @@
         height: 110px !important;
     }
 }
+@media screen and (min-width: 991px){
+    #money .money span.balance-value{
+        font-size: 20px !important;
+    }
+}
