@@ -1,5 +1,5 @@
  Мини приложение dashboard для отслеживания финансов (+api Bybit)
-https://vercel-dashboard-flask-git-main-snusav1js-projects.vercel.app/
+![Dashboard](https://vercel-dashboard-flask-git-main-snusav1js-projects.vercel.app/)
  
 desktop
 
