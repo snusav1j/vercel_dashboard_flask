@@ -1,4 +1,4 @@
- Мини приложение dashboard для отслеживания финансов (+api Bybit)
+ Мини приложение dashboard для отслеживания финансов (+api Bybit) \n
 [Dashboard](https://vercel-dashboard-flask-git-main-snusav1js-projects.vercel.app/)
  
 desktop
