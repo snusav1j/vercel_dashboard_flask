@@ -30,6 +30,7 @@
 .tooltip-m::before,
 .tooltip-m::after {
 	position: absolute;
+	z-index: 1;
 	top: 50%;
 	right: 150%;
 	color: #f0f0f0;
