@@ -213,7 +213,7 @@ span.balance-info{
     color: var(--money)
 }
 .up{
-    color: var(--case)
+    color: #008f15;
 }
 .up::before{
     content: "+"
