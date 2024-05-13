@@ -31,11 +31,11 @@ setInterval(function() {
             date_time = formatted_date.split(', ')[1]
             
             if ($('.curr-convert > input').is(':checked') == false){
-                deposit_list += `<div><span class="balance-value"> +${String(Number(deposit_amount).toFixed(2))} USD</span> <span class="deposit-date"> <span>${date_dd_mm_yy}</span> <span>${date_time}</span> </span> </div>`
+                deposit_list += `<div><span class="balance-value"> +${String(Number(deposit_amount).toFixed(2))} USD</span> <span class="operation-date"> <span>${date_dd_mm_yy}</span> <span>${date_time}</span> </span> </div>`
                 $('.curr-convert > label').text('USD')
                 total_deposit_value += Number(deposit_amount) 
             }else{
-                deposit_list += `<div><span class="balance-value"> +${String((Number(deposit_amount) * usd).toFixed(2))} RUB</span> <span class="deposit-date"> <span>${date_dd_mm_yy}</span> <span>${date_time}</span> </span> </div>`
+                deposit_list += `<div><span class="balance-value"> +${String((Number(deposit_amount) * usd).toFixed(2))} RUB</span> <span class="operation-date"> <span>${date_dd_mm_yy}</span> <span>${date_time}</span> </span> </div>`
                 $('.curr-convert > label').text('RUB')
                 total_deposit_value += Number(deposit_amount) 
             }
@@ -48,7 +48,7 @@ setInterval(function() {
             coin_quanity = Number(wallet_res[i]['coinQuanity']).toFixed(2)
             
             if ($('.curr-convert > input').is(':checked') == false){
-                coins_list += `<div>${String(coin_quanity)} ${coin_name}: <span class="balance-value">${String(usd_value.toFixed(2))}</span> USD</div>`
+                coins_list += `<div>${String(coin_quanity)} ${coin_name}: <span class="balance-value">${String(usd_value.toFixed(2))} USD</span> </div>`
                 $('.curr-convert > label').text('USD')
             }else{
                 coins_list += `<div>${String(coin_quanity)} ${coin_name}: <span class="balance-value">${String((usd_value * usd).toFixed(2))} RUB</span> </div>`
@@ -60,8 +60,28 @@ setInterval(function() {
         usd = 91.66 
         
         income_start_date = 1713128400000 // 15 апреля 2024г.
-        total_income_per_ms = 0.00001458333 
-        total_income = (((Date.now() - income_start_date) * total_income_per_ms) / usd) - total_deposit_value 
+        total_income_per_ms = 0.00001458333
+        icnome_per_day_rub = 9830
+        day_point = 604800000
+        days_from_income_start = Math.floor((Date.now() - 1713128400000) / day_point)
+        income_list = ''
+        each_income_date = income_start_date
+        total_income_with_deposit = 0
+        for (let i = 1; i < days_from_income_start + 1; i++) {
+            each_income_date += day_point
+            total_income_with_deposit += icnome_per_day_rub / usd
+            formatted_income_date = new Date(Number(each_income_date)).toLocaleString()
+            date_dd_mm_yy = formatted_income_date.split(', ')[0]
+            date_time = formatted_income_date.split(', ')[1]
+            if ($('.curr-convert > input').is(':checked') == false){
+                income_list += `<div><span class="balance-value up">${(icnome_per_day_rub / usd).toFixed(2)} USD</span> <span class="operation-date"> <span>${date_dd_mm_yy}</span> <span>${date_time}</span> </span></div>`
+                $('.curr-convert > label').text('USD')
+            }else{
+                income_list += `<div><span class="balance-value up">${icnome_per_day_rub} RUB</span> <span class="operation-date"> <span>${date_dd_mm_yy}</span> <span>${date_time}</span> </span></div>`
+                $('.curr-convert > label').text('RUB')
+            }
+        }
+        total_income = total_income_with_deposit - total_deposit_value 
         total_wallet_balance = Number(total_crypto_balance) + total_income
         //
         increase_balance_percent = (Number(total_crypto_balance) / total_deposit_value - 1)  * 100
@@ -76,6 +96,8 @@ setInterval(function() {
             $('.case .balance-value').attr('data-last-val', total_income.toFixed(2));
             $('.money .balance-value').attr('data-last-val', Number(total_wallet_balance).toFixed(2));
         }, 100)
+        
+        $('.income-list').html(income_list)
 
         // код изменения активов в сравнении с предыдущим (упростить код)
         last_crypto_val = Number($('.crypto .balance-value').attr('data-last-val'))
@@ -114,12 +136,16 @@ setInterval(function() {
             $('.case .balance-value').text(`${(total_income).toFixed(2)} USD`)
             $('.money .balance-value').text(`${Number(total_wallet_balance).toFixed(2)} USD`)
             $('.crypto-pnl').text(`${Number(total_balance_pnl).toFixed(2)} USD`)
+            $('.total-income').html(`(${total_income_with_deposit.toFixed(2)} USD)`)
+
             $('.curr-convert > label').text('USD')
         }else{
             $('.crypto .balance-value').text(`${Number(total_crypto_balance * usd).toFixed(2)} RUB`)
             $('.case .balance-value').text(`${(total_income * usd).toFixed(2)} RUB`)
             $('.money .balance-value').text(`${Number(total_wallet_balance * usd).toFixed(2)} RUB`)
             $('.crypto-pnl').text(`${Number(total_balance_pnl * usd).toFixed(2)} RUB`)
+            $('.total-income').html(`(${(total_income_with_deposit * usd).toFixed(2)} RUB)`)
+
             $('.curr-convert > label').text('RUB')
         }
 
@@ -129,8 +155,8 @@ setInterval(function() {
             $('.crypto-pnl').addClass('down')
         }
 
-        // $('.coins-list').html(coins_list)
-        $('.coins-list').html('HIDDEN')
+        $('.coins-list').html(coins_list)
+        // $('.coins-list').html('HIDDEN')
         
         if (isFinite(increase_balance_percent) == true){
             if (increase_balance_percent > 0){
@@ -164,5 +190,4 @@ setInterval(function() {
             $('.loader').remove()
         }, 1000)
     };
-}, 3000)
-
+}, 2000)
