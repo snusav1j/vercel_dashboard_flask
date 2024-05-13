@@ -36,7 +36,7 @@
 	visibility: hidden;
 	opacity: 0;
 	transform: translateX(25px) translateY(-25px);
-	transition: 0.5s;
+	transition: 0.333s;
 }
 
 .tooltip-m:hover::before,
@@ -59,7 +59,7 @@
 	width: fit-content;
 	white-space: nowrap;
 	height: auto;
-	border-radius: 5px;
+	border-radius: 10px;
 	display: block;
 	padding: 5px 10px;
 	margin-left: 30px;
@@ -123,13 +123,11 @@ li{list-style: none;}
     height: 50px;
     background: #2a2a2a;
     border-radius: 5px;
-    border: 3px solid var(--light-grey);
 }
 .navbar > nav > a:not(:first-child){
     padding: 6px;
     width: 45px;
     height: 45px;
-    border: 3px solid var(--light-grey);
 }
 .navbar .crypto:hover,
 .navbar .money:hover,
@@ -165,6 +163,9 @@ li{list-style: none;}
     min-width: 40px;
     max-width: 40px;
 }
+.navbar a img{
+    width: 30px;
+}
 @media screen and (max-width: 991px){
     .navbar > nav{
         flex-direction: row;
@@ -179,9 +180,7 @@ li{list-style: none;}
     .nav-logo img{
         width: 100% !important;
     }
-    .navbar a img{
-        width: 30px;
-    }
+    
     .content-row{
         flex-direction: column;
         width: 100%;
@@ -252,4 +251,37 @@ span.case-expenses{
 }
 .money-marker{
     background: var(--money);
+}
+@media screen and (max-width: 340px){
+    .curr-convert label{
+        font-size: 12px !important;
+    }
+    .curr-convert{
+        width: 40px
+    }
+    .navbar > nav > a:not(:first-child){
+        width: 40px !important;
+        height: 40px !important;
+    }
+    .navbar > nav > a:not(:last-child) > img{
+        width: 100% !important;
+    }
+}
+.navbar > nav > a.logout {
+    position: absolute;
+    bottom: 10px;
+}
+.navbar > nav > a.logout:hover{
+    background: #222222;
+}
+@media screen and (max-width: 991px){
+    .navbar > nav > a.logout {
+        bottom: unset;
+        left: unset;
+        right: 6px !important;
+        background: none;
+    }
+    .curr-convert {
+        right: 55px;
+    }
 }

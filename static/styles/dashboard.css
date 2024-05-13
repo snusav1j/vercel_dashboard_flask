@@ -96,12 +96,12 @@
 .pie-elems .pie-crypto span{
     display: flex;
     width: 15px; height: 15px;
-    border-radius: 5px;
+    border-radius: 3px;
     background: var(--crypto)
 }
 .pie-elems .pie-case span{
     width: 15px; height: 15px;
-    border-radius: 5px;
+    border-radius: 3px;
     background: var(--case)
 }
 .content-row{
@@ -273,7 +273,7 @@ span.total-dep {
         position: absolute;
         bottom: unset;
         left: unset;
-        right: 15px
+        right: 15px;
     }
 }
 .curr-direction,

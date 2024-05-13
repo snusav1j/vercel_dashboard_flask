@@ -1,24 +1,54 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, flash, redirect, url_for, make_response, request, session
 from pybit.unified_trading import HTTP
-from keys import apiKey, secretKey
+from keys import apiKey, secretKey, asd1
 
 app = Flask(__name__)
 
+# # # # # # # # # # # #
+
+app.secret_key = 'secret'
+
+@app.route('/login', methods = ["GET", "POST"])
+def login():
+    if request.method == 'POST':
+        session['pass'] = request.form['pass']
+        print(session['pass'])
+        return redirect(url_for('dashboard'))
+    else:
+        return render_template("login.html")
+
+@app.route('/logout', methods = ["GET", "POST"])
+def unset_session():
+    session.pop('pass', None)
+    return redirect(url_for('login'))
+
 @app.route('/')
 def dashboard():
-    return render_template("dashboard.html")
+    if 'pass' in session:
+        if session['pass'] == asd1:
+            return render_template("dashboard.html")
+    return redirect(url_for('login'))
 
 @app.route('/crypto.html')
 def crypto():
-    return render_template("crypto.html")
+    if 'pass' in session:
+        if session['pass'] == asd1:
+            return render_template("crypto.html")
+    return redirect(url_for('login'))
 
 @app.route('/case.html')
 def case():
-    return render_template("case.html")
+    if 'pass' in session:
+        if session['pass'] == asd1:
+            return render_template("case.html")
+    return redirect(url_for('login'))
 
 @app.route('/money.html')
 def money():
-    return render_template("money.html")
+    if 'pass' in session:
+        if session['pass'] == asd1:
+            return render_template("money.html")
+    return redirect(url_for('login'))
 
 @app.route('/wallet_info', methods=["GET"])
 def get_wallet_info():
