@@ -98,7 +98,7 @@ setInterval(function() {
             $('.money .balance-value').attr('data-last-val', Number(total_wallet_balance).toFixed(2));
         }, 100)
         
-        $('.income-list').html(income_list)
+        $('.income-list').html(income_list.reverse())
 
         // код изменения активов в сравнении с предыдущим (упростить код)
         last_crypto_val = Number($('.crypto .balance-value').attr('data-last-val'))
