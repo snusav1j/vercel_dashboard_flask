@@ -4,11 +4,17 @@
     justify-content: center;
     align-items: center;
 }
+body{
+    overflow: hidden !important;
+}
+*{
+    transition: all 1.5s ease;
+}
 .form-login input{
     border: unset;
     border-radius: 5px;
     padding: 5px 10px;
-    margin-top: 15px;
+    margin-top: 10px;
     width: 100%;
 }
 input#login-submit{
@@ -17,14 +23,39 @@ input#login-submit{
 }
 .form-login label{
     width: 100%;
+    font-size: 16px;
+    font-weight: 700;
     text-align: center;
 }
 .form-login{
     padding: 20px;
-    background: var(--light-grey);
+    /* background: var(--light-grey); */
     border-radius: 5px;
     width: 280px;
 }
 input#login-submit:hover{
     background: #222222;
+}
+svg{
+    color: #3064b3;
+    width: 400px;
+    filter: drop-shadow(0px 3px 10px currentColor);
+    position: absolute;
+    z-index: -2;
+}
+@media screen and (max-width: 425px){
+    svg{
+        width: 350px !important;
+    }
+    .form-login {
+        width: 260px;
+    }
+}
+@media screen and (max-width: 380px){
+    svg{
+        width: 300px !important;
+    }
+    .form-login {
+        width: 240px;
+    }
 }
