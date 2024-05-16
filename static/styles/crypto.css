@@ -72,11 +72,3 @@
 .crypto-coins-visibility > .mobile{
     display: none;
 }
-@media screen and (max-width: 1080px){
-	.crypto-coins-visibility > .desktop{
-		display: none;
-	}
-	.crypto-coins-visibility > .mobile{
-		display: block;
-	}
-}
