@@ -159,18 +159,22 @@ setInterval(function() {
             temp_doc = document.createElement('html');
             temp_doc.innerHTML = coins_list[i];
             balance_val = temp_doc.getElementsByClassName('balance-value');
-            balance_val_num = Number($(balance_val).text().replace(/\D/g,'')[0])
+            balance_val_num = Number($(balance_val).text().replace(/[^\d.-]/g, ''))
             
             // console.log(i, balance_val_num > 0)
+            if ($('.curr-convert > input').is(':checked') == true){
+                balance_val_num = balance_val_num / usd
+            }
 
             if ($('.crypto-coins-visibility > input').is(':checked') == false){
-                if ((balance_val_num > 0) == false){
+                if ((balance_val_num > 0.3) == false){
                     coins_list[i] = ''
                 }
                 $('.vis-on').hide()
                 $('.vis-off').show()
+
             }else{
-                if ((balance_val_num > 0) == true){
+                if ((balance_val_num > 0.3) == true){
                     coins_list[i]
                 }
                 $('.vis-on').show()

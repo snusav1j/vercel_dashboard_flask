@@ -75,3 +75,9 @@
 .coins-list .coin-name{
 	color: #0ec2e7;
 }
+#crypto .card-row-2 .card-info:first-child{
+	margin-bottom: unset !important;
+}
+.crypto-coins-visibility > label{
+    cursor: pointer;
+}
