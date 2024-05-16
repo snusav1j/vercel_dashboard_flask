@@ -239,19 +239,7 @@
     font-size: 12px !important;
     color: #797979;
 }
-@media screen and (min-width: 1200px){
-    .responsive-list .coins-list{
-        position: relative;
-    }
-    .responsive-list .coins-list span{
-        margin-left: 25px;
-    }
-    .responsive-list .coins-list span.balance-value{
-        position: absolute;
-        right: 30px;
-        margin-left: 0;
-    }
-}
+
 span.total-income,
 span.total-dep {
     display: block;
