@@ -72,3 +72,6 @@
 .crypto-coins-visibility > .mobile{
     display: none;
 }
+.coins-list .coin-name{
+	color: #0ec2e7;
+}
