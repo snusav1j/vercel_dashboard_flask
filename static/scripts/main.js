@@ -18,7 +18,7 @@ setInterval(function() {
         total_crypto_balance = Number(wallet_res[0].walletBalance).toFixed(2)
 
         wallet_res = wallet_res.splice(1) // удалить первое значение (баланс кошелька) для перебора ТОЛЬКО списка монет
-        coins_list = ''
+        coins_list = []
         deposit_list = []
         total_deposit_value = - 4.2183 - 15 // переводы между счетами
 
@@ -47,10 +47,10 @@ setInterval(function() {
             coin_quanity = Number(wallet_res[i]['coinQuanity']).toFixed(2)
             
             if ($('.curr-convert > input').is(':checked') == false){
-                coins_list += `<div>${String(coin_quanity)} ${coin_name}: <span class="balance-value">${String(usd_value.toFixed(2))} USD</span> </div>`
+                coins_list.push([`<div>${String(coin_quanity)} ${coin_name} <span class="balance-value">${String(usd_value.toFixed(2))} USD</span> </div>`])
                 $('.curr-convert > label').text('USD')
             }else{
-                coins_list += `<div>${String(coin_quanity)} ${coin_name}: <span class="balance-value">${String((usd_value * usd).toFixed(2))} RUB</span> </div>`
+                coins_list.push([`<div>${String(coin_quanity)} ${coin_name} <span class="balance-value">${String((usd_value * usd).toFixed(2))} RUB</span> </div>`])
                 $('.curr-convert > label').text('RUB')
             }
         }
@@ -60,9 +60,9 @@ setInterval(function() {
         
         income_start_date = 1713128400000 // 15 апреля 2024г.
         total_income_per_ms = 0.00001458333
-        icnome_per_day_rub = 9830
-        day_point = 604800000
-        days_from_income_start = Math.floor((Date.now() - 1713128400000) / day_point)
+        icnome_per_day_rub = 18300
+        day_point = 1296000000
+        days_from_income_start = Math.floor((Date.now() - income_start_date) / day_point)
         income_list = []
         
         each_income_date = income_start_date
@@ -155,7 +155,29 @@ setInterval(function() {
         }else{
             $('.crypto-pnl').addClass('down')
         }
+        for (i in coins_list){
+            temp_doc = document.createElement('html');
+            temp_doc.innerHTML = coins_list[i];
+            balance_val = temp_doc.getElementsByClassName('balance-value');
+            balance_val_num = Number($(balance_val).text().replace(/\D/g,'')[0])
+            
+            // console.log(i, balance_val_num > 0)
 
+            if ($('.crypto-coins-visibility > input').is(':checked') == false){
+                if ((balance_val_num > 0) == false){
+                    coins_list[i] = ''
+                }
+                $('.vis-on').hide()
+                $('.vis-off').show()
+            }else{
+                if ((balance_val_num > 0) == true){
+                    coins_list[i]
+                }
+                $('.vis-on').show()
+                $('.vis-off').hide()
+            }
+        }
+            
         $('.coins-list').html(coins_list)
         // $('.coins-list').html('HIDDEN')
         
@@ -193,3 +215,4 @@ setInterval(function() {
     };
 }, 2000)
 
+// 

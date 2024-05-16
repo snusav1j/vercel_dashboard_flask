@@ -48,3 +48,35 @@
 #crypto .card-row-2 .card-info:last-child{
     margin-bottom: unset;
 }
+.coins-list span.balance-value{
+	color: #00adff94 !important;
+}
+.coins-list > div{
+    position: relative !important;
+}
+.coins-list span.balance-value{
+    position: absolute !important;
+    right: 15px !important;
+}
+.card-header{
+	position: relative;
+}
+
+.crypto-coins-visibility{
+	display: flex;
+	position: absolute;
+	right: 0;
+    gap: 5px;
+    cursor: pointer;
+}
+.crypto-coins-visibility > .mobile{
+    display: none;
+}
+@media screen and (max-width: 1080px){
+	.crypto-coins-visibility > .desktop{
+		display: none;
+	}
+	.crypto-coins-visibility > .mobile{
+		display: block;
+	}
+}

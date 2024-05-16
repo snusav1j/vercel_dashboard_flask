@@ -213,7 +213,7 @@ span.balance-info{
     color: var(--money)
 }
 .up{
-    color: #008f15;
+    color: var(--case)
 }
 .up::before{
     content: "+"
@@ -271,9 +271,10 @@ span.case-expenses{
 .navbar > nav > a.logout {
     position: absolute;
     bottom: 10px;
+    background: unset !important;
 }
 .navbar > nav > a.logout:hover{
-    background: #222222;
+    /* background: #222222; */
 }
 @media screen and (max-width: 991px){
     .navbar > nav > a.logout {
@@ -292,4 +293,9 @@ span.total-dep{
 }
 .card-row-2 span.balance-value{
 	color: #017640 !important;
+}
+.vis-off,
+.vis-on{
+    display: flex;
+    gap: 5px;
 }
