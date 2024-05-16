@@ -47,10 +47,10 @@ setInterval(function() {
             coin_quanity = Number(wallet_res[i]['coinQuanity']).toFixed(2)
             
             if ($('.curr-convert > input').is(':checked') == false){
-                coins_list.push([`<div>${String(coin_quanity)} ${coin_name} <span class="balance-value">${String(usd_value.toFixed(2))} USD</span> </div>`])
+                coins_list.push([`<div>${String(coin_quanity)} <span class="coin-name">${coin_name}</span> <span class="balance-value">${String(usd_value.toFixed(2))} USD</span> </div>`])
                 $('.curr-convert > label').text('USD')
             }else{
-                coins_list.push([`<div>${String(coin_quanity)} ${coin_name} <span class="balance-value">${String((usd_value * usd).toFixed(2))} RUB</span> </div>`])
+                coins_list.push([`<div>${String(coin_quanity)} <span class="coin-name">${coin_name}</span> <span class="balance-value">${String((usd_value * usd).toFixed(2))} RUB</span> </div>`])
                 $('.curr-convert > label').text('RUB')
             }
         }
