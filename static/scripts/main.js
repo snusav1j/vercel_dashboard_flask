@@ -156,8 +156,8 @@ setInterval(function() {
             $('.crypto-pnl').addClass('down')
         }
 
-        // $('.coins-list').html(coins_list)
-        $('.coins-list').html('HIDDEN')
+        $('.coins-list').html(coins_list)
+        // $('.coins-list').html('HIDDEN')
         
         if (isFinite(increase_balance_percent) == true){
             if (increase_balance_percent > 0){
