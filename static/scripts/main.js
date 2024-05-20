@@ -20,7 +20,7 @@ setInterval(function() {
         wallet_res = wallet_res.splice(1) // удалить первое значение (баланс кошелька) для перебора ТОЛЬКО списка монет
         coins_list = []
         deposit_list = []
-        total_deposit_value = - 4.2183 - 15 - 83// переводы между счетами
+        total_deposit_value = -109.2183// переводы между счетами
 
         // список депозитов
         for (i in deposit_res){
