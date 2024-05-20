@@ -64,7 +64,7 @@ def get_wallet_info():
     )
     transfer_records_result = session.get_internal_transfer_records(
         coin="USDT",
-        limit=10,
+        limit=20,
     )
     fund_deposit_info = []
 
